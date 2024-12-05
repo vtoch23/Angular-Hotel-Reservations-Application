@@ -1,25 +1,50 @@
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <div class="container text-center">
-        <div>
+    <div class="container w-2/3 m-3 mx-auto">
+        <div class="justify-between flex">
             <label>Check-In Date</label>
-            <input type="date" formControlName="checkInDate">
+            <input class="input shadow-sm border-2"     
+                    type="date" 
+                    formControlName="checkInDate">   
         </div>
-        <div>
+        @if(reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched){
+            <div class="text-red-600 text-sm">Check-In Date is required</div>
+            }
+        <div class="justify-between flex">
             <label>Check-Out Date</label>
-            <input type="date" formControlName="checkOutDate">
+            <input class="input shadow-sm border-2" 
+                    type="date" 
+                    formControlName="checkOutDate">
         </div>
-        <div>
+        @if(reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched){
+            <div class="text-red-600 text-sm">Check-Out Date is required</div>
+            }
+        <div class="justify-between flex">
             <label>Guest Name</label>
-            <input type="text" formControlName="guestName">
+            <input class="input shadow-sm border-2" 
+                    type="text" 
+                    formControlName="guestName">
         </div>
-        <div>
+        @if(reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched){
+            <div class="text-red-600 text-sm">Guest name is required</div>
+            }
+        <div class="justify-between flex">
             <label>Guest Email</label>
-            <input type="email" formControlName="guestEmail">
+            <input class="input shadow-sm border-2" 
+                    type="email" 
+                    formControlName="guestEmail">
         </div>
-        <div>
+        @if(reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched){
+            <div class="text-red-600 text-sm">Guest email is required</div>
+            }
+        <div class="justify-between flex">
             <label>Room number</label>
-            <input type="number" formControlName="roomNumber">
+            <input class="input shadow-sm border-2" type="number" formControlName="roomNumber">
         </div>
-        <button type="submit">Submit</button>
+        @if(reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched){
+            <div class="text-red-600 text-sm">Room number is required</div>
+            }
+        <button class="bg-black disabled:bg-gray-400 text-white mt-3 p-1 rounded-sm px-2" 
+                type="submit" 
+                [disabled]="reservationForm.invalid">Submit</button>
     </div>
 </form>
