@@ -10,6 +10,7 @@
                 <div class="container flex justify-between"> <label>Check-In Date: </label><div>{{reservation.checkInDate}} </div></div>
                 <div class="container flex justify-between"> <label>Check-Out Date: </label><div>{{reservation.checkOutDate}} </div></div>
                 <div class="bg-slate-800 text-white text-center"><button (click)="deleteReservation(reservation.id)">Delete</button></div>
+                <div class="bg-slate-500 text-white text-center"><button [routerLink]="['/edit', reservation.id]">Edit</button></div>
             </div>
         }
     </div>
@@ -17,8 +18,16 @@
     @else {
         <div>No reservations available</div>
     }
+
+    <div class="container flex justify-between ">
+
+        <div class="bg-slate-500 text-white w-24 text-center px-2 rounded-sm hover:bg-slate-300 hover:text-black mx-auto">
+            <button [routerLink]="['/']">Home</button>
+        </div>
+    
+        <div class="bg-pink-600 text-white w-24 text-center px-2 rounded-sm hover:bg-pink-400 hover:text-black mx-auto">
+            <button [routerLink]="['/new']">Add new</button>
+        </div>
+    </div>
 </div>
 
-<div class="bg-slate-500 text-white w-24 text-center px-2 rounded-sm hover:bg-slate-300 hover:text-black mx-auto">
-    <button [routerLink]="['/']">Home</button>
-</div>
