@@ -1,1 +1,20 @@
-<p>reservation-list works!</p>
+<div class="container m-3">
+    <h2 class="text-lg font-bold text-slate-600">Reservations List</h2>
+    @if (reservations.length) {
+    <div class="w-2/3">
+        @for (reservation of reservations; track reservation.id) {
+            <div class="container my-2">
+                <div class="container flex justify-between"> <label>Guest: </label><div>{{reservation.guestName}} </div></div>
+                <div class="container flex justify-between"> <label>Email: </label><div>{{reservation.guestEmail}} </div></div>
+                <div class="container flex justify-between"> <label>Room No: </label><div>{{reservation.roomNumber}} </div></div>
+                <div class="container flex justify-between"> <label>Check-In Date: </label><div>{{reservation.checkInDate}} </div></div>
+                <div class="container flex justify-between"> <label>Check-Out Date: </label><div>{{reservation.checkOutDate}} </div></div>
+            </div>
+        }
+    </div>
+    } 
+    @else {
+        <div>No reservations available</div>
+    }
+</div>
+
