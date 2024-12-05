@@ -1,5 +1,10 @@
 # HotelApp
 
+A front-end  Angular hotel reservations app which saves a guest name, email, room number check-in and check-out date. It uses local storage to store the data and Tailwind CSS for styling. 
+
+![mobile view](src/assets/image.png)
+![large view](src/assets/image-1.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
 
 ## Development server
