@@ -1,3 +1,4 @@
+<app-home></app-home>
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
     <div class="container w-2/3 m-3 mx-auto">
         <div class="justify-between flex">
@@ -49,13 +50,3 @@
     </div>
 </form>
 
-<div class="container flex justify-between  mx-auto">
-
-    <div class="bg-slate-500 text-white w-24 text-center px-2 rounded-sm hover:bg-slate-300 hover:text-black mx-auto">
-        <button [routerLink]="['/']">Home</button>
-    </div>
-
-    <div class="bg-pink-600 text-white text-center px-2 rounded-sm hover:bg-pink-400 hover:text-black mx-auto">
-        <button [routerLink]="['/list']">View reservations</button>
-    </div>
-</div>

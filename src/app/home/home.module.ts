@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule
+  ],
+  exports: [
+    HomeComponent
   ]
 })
 export class HomeModule { }
