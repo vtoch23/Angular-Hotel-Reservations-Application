@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
-import { ReservationListComponent } from '../reservation-list/reservation-list.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
   private reservations: Reservation [] = [];
+
+  //CRUD
 
   getReservations(): Reservation[] {
     return this.reservations;
