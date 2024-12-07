@@ -1,27 +1,33 @@
 <app-home></app-home>
-<div class="container m-3 mx-auto">
-    <h2 class="text-lg font-bold text-slate-600 mx-auto max-w-fit">Reservations List</h2>
-    @if (reservations.length) {
-    <div class="mx-auto w-2/4 content-center">
-        @for (reservation of reservations; track reservation.id) {
-            <div class="container my-2 ">
-                <div class="container flex justify-between"> <label>Guest: </label><div class="font-bold">{{reservation.guestName}} </div></div>
-                <div class="container flex justify-between"> <label>Email: </label><div class="font-bold">{{reservation.guestEmail}} </div></div>
-                <div class="container flex justify-between"> <label>Room No: </label><div class="font-bold">{{reservation.roomNumber}} </div></div>
-                <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-In Date: </label><div class="font-bold">{{reservation.checkInDate}} </div></div>
-                <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-Out Date: </label><div class="font-bold">{{reservation.checkOutDate}} </div></div>
-                <div class="container flex justify-between">
-                    <div class="bg-slate-800 w-24 text-white text-center rounded-sm hover:text-black hover:bg-slate-400"><button (click)="deleteReservation(reservation.id)">Delete</button></div>
-                    <div class="bg-slate-500 w-24 text-white text-center rounded-sm hover:text-white hover:bg-slate-900"><button [routerLink]="['/edit', reservation.id]">Edit</button></div>
-                </div>
-            </div>
-            <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-        }
+<div name="main" class="container max-w-full lg:flex md:flex sm:flex-none lg:mx-auto">
+    
+    <div class="lg:w-2/6 md:w-3/6 sm:w-4/6 bg-slate-600 lg:float-right sm:mx-auto">
+        <app-reservation-form></app-reservation-form>
     </div>
-    } 
-    @else {
-        <div>No reservations available</div>
-    }
 
+    <div class="lg:w-3/6 sm:w-4/6 lg:mx-auto md:mx-4 sm:mx-auto">
+        <h2 class="text-lg font-bold text-slate-600 mx-auto max-w-fit mt-4">Reservations List</h2>
+        @if (reservations.length) {
+        <div class="mx-auto content-center justify-center">
+            @for (reservation of reservations; track reservation.id) {
+                <div class="container my-2 p-3">
+                    <div class="container flex justify-between"> <label>Guest: </label><div class="font-bold">{{reservation.guestName}} </div></div>
+                    <div class="container flex justify-between"> <label>Email: </label><div class="font-bold">{{reservation.guestEmail}} </div></div>
+                    <div class="container flex justify-between"> <label>Room No: </label><div class="font-bold">{{reservation.roomNumber}} </div></div>
+                    <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-In Date: </label><div class="font-bold">{{reservation.checkInDate}} </div></div>
+                    <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-Out Date: </label><div class="font-bold">{{reservation.checkOutDate}} </div></div>
+                    <div class="container flex justify-between">
+                        <div class="bg-slate-800 w-24 text-white text-center rounded-sm hover:text-black hover:bg-slate-400 mt-2"><button (click)="deleteReservation(reservation.id)">Delete</button></div>
+                        <div class="bg-slate-500 w-24 text-white text-center rounded-sm hover:text-white hover:bg-slate-900 mt-2"><button [routerLink]="['/list/edit', reservation.id]">Edit</button></div>
+                    </div>
+                </div>
+                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+            }
+        </div>
+        } 
+        @else {
+            <div>No reservations available</div>
+        }
+
+    </div>
 </div>
-

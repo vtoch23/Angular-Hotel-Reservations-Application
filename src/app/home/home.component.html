@@ -1,14 +1,15 @@
-<div class="container mx-auto max-w-full mt-3 bg-slate-300 pt-2">
-    <h2 class="font-bold text-2xl text-slate-600 max-w-fit mx-auto text-center my-2">Welcome to the Hotel Reservation Portal</h2>
-    <div class="container justify-between mx-auto lg:flex sm:flex-none">
-
-        <div class="bg-slate-500 text-white h-10 w-1/2 text-center content-center px-2 rounded-sm hover:bg-slate-400 hover:text-black mx-auto text-sm">
-            <button [routerLink]="['/new']">Create a new reservation</button>
-        </div>
-    
-        <div class="bg-pink-600 text-white h-10 w-1/2 text-center content-center px-2 rounded-sm hover:bg-pink-400 hover:text-black mx-auto text-sm">
-            <button [routerLink]="['/list']">View reservations</button>
-        </div>
+<div class="container bg-slate-300 max-w-full">
+    <div class="container mx-auto">
+        <div name="title" class="text-3xl font-bold text-slate-600 text-center pt-3 h-20 content-center">Welcome to the Hotel Reservation Portal</div>
+        <!-- <div name="navigation" class="container lg:flex md:flex sm:flex-none mx-auto w-fit content-center py-2 pb-3">
+            <div name="button1" class="container flex w-96 justify-center mt-1">
+                <mat-icon class=" bg-slate-500 text-white" aria-hidden="false" aria-label="add new" fontIcon="add-circle"></mat-icon>
+                <button class="content-center bg-slate-600 text-white px-1 min-w-52" [routerLink]="['/new']">Create a new reservation</button>
+            </div>
+            <div name="button2" class="container flex w-96 justify-center mt-1">
+                <mat-icon class=" bg-pink-600 text-white pr-1" aria-hidden="false" aria-label="list" fontIcon="list"></mat-icon>
+                <button class=" bg-pink-700 text-white min-w-52" [routerLink]="['/list']">View reservations</button>
+            </div>
+        </div> -->
     </div>
-    
 </div>

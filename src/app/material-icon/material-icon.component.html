@@ -1,0 +1,21 @@
+<mat-form-field fxFlex>
+    <mat-label>Icon</mat-label>
+    <input matInput type="text" 
+                    [formControl]="formControl" 
+                    [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" 
+                        (optionSelected)="onSelection($event.option.value)">
+                <cdk-virtual-scroll-viewport #iconValueViewport 
+                            itemSize="32" 
+                            maxBufferPx="500" 
+                            minBufferPx="250"
+                            [ngStyle]="{'height': filteredIconsCount}">
+                    <mat-option *cdkVirtualFor="let icon of filteredIcons$ | async; trackBy: trackByIconName"
+                                [value]="icon">
+                                {{icon}}
+                                <!-- <mat-icon class="icon-size" aria-hidden="false" fontIcon="{{icon}}">{{icon}}</mat-icon> -->
+                    </mat-option>
+
+                </cdk-virtual-scroll-viewport>
+            </mat-autocomplete>
+</mat-form-field>

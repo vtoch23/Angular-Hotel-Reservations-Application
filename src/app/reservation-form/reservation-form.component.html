@@ -1,52 +1,58 @@
-<app-home></app-home>
-<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <div class="container w-2/3 m-3 mx-auto">
-        <div class="justify-between flex">
-            <label>Check-In Date</label>
-            <input class="input shadow-sm border-2"     
-                    type="date" 
-                    formControlName="checkInDate">   
+<div class="bg-slate-600">
+    <h2 class="text-2xl font-bold  mb-2 mx-auto max-w-fit pt-4 text-white">New Reservation</h2>
+    <hr class="h-px mt-6 bg-slate-400 border-0 dark:bg-gray-700">
+    <div class="text-pink-400 text-center"><mat-icon class="icon-size" aria-hidden="false" aria-label="arrow" fontIcon="arrow_drop_down"></mat-icon></div>
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        <div class="container mx-auto max-w-fit"><app-material-icon [formControlName]=""></app-material-icon></div>
+        <div class="container w-full p-8 mx-auto">
+            <div class="justify-between flex lg:mb-8 md:my-2 sm:my-2">
+                <label class="text-white">Check-In Date</label>
+                <input class="input shadow-sm border-2 ml-1"     
+                        type="date" 
+                        formControlName="checkInDate">   
+            </div>
+            @if(reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched){
+                <div class="text-red-600 text-sm">Check-In Date is required</div>
+                }
+            <div class="justify-between flex lg:my-8 md:my-3 sm:my-2">
+                <label class="text-white">Check-Out Date</label>
+                <input class="input shadow-sm border-2 ml-1" 
+                        type="date" 
+                        formControlName="checkOutDate">
+            </div>
+            @if(reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched){
+                <div class="text-red-600 text-sm">Check-Out Date is required</div>
+                }
+            <div class="justify-between flex lg:my-8 md:my-3 sm:my-2">
+                <label class="text-white">Guest Name</label>
+                <input class="input shadow-sm border-2 ml-1 lg:w-52 md:w-36" 
+                        type="text" 
+                        formControlName="guestName">
+            </div>
+            @if(reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched){
+                <div class="text-red-600 text-sm">Guest name is required</div>
+                }
+            <div class="justify-between flex lg:my-8 md:my-3 sm:my-2">
+                <label class="text-white">Guest Email</label>
+                <input class="input shadow-sm border-2 ml-1 lg:w-52 md:w-36" 
+                        type="email" 
+                        formControlName="guestEmail">
+            </div>
+            @if(reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched){
+                <div class="text-red-600 text-sm">Guest email is required</div>
+                }
+            <div class="justify-between flex lg:my-8 md:my-3 sm:my-2">
+                <label class="text-white">Room number</label>
+                <input class="input shadow-sm border-2 ml-2 md:w-36" type="number" formControlName="roomNumber">
+            </div>
+            @if(reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched){
+                <div class="text-red-600 text-sm">Room number is required</div>
+                }
+            <div class="grid grid-cols-1 content-center">
+                <button class="bg-pink-500 disabled:bg-gray-400 text-white mt-3 p-1 rounded-sm px-2" 
+                        type="submit" 
+                        [disabled]="reservationForm.invalid">Submit</button>
+            </div>
         </div>
-        @if(reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched){
-            <div class="text-red-600 text-sm">Check-In Date is required</div>
-            }
-        <div class="justify-between flex">
-            <label>Check-Out Date</label>
-            <input class="input shadow-sm border-2" 
-                    type="date" 
-                    formControlName="checkOutDate">
-        </div>
-        @if(reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched){
-            <div class="text-red-600 text-sm">Check-Out Date is required</div>
-            }
-        <div class="justify-between flex">
-            <label>Guest Name</label>
-            <input class="input shadow-sm border-2" 
-                    type="text" 
-                    formControlName="guestName">
-        </div>
-        @if(reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched){
-            <div class="text-red-600 text-sm">Guest name is required</div>
-            }
-        <div class="justify-between flex">
-            <label>Guest Email</label>
-            <input class="input shadow-sm border-2" 
-                    type="email" 
-                    formControlName="guestEmail">
-        </div>
-        @if(reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched){
-            <div class="text-red-600 text-sm">Guest email is required</div>
-            }
-        <div class="justify-between flex">
-            <label>Room number</label>
-            <input class="input shadow-sm border-2" type="number" formControlName="roomNumber">
-        </div>
-        @if(reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched){
-            <div class="text-red-600 text-sm">Room number is required</div>
-            }
-        <button class="bg-black disabled:bg-gray-400 text-white mt-3 p-1 rounded-sm px-2" 
-                type="submit" 
-                [disabled]="reservationForm.invalid">Submit</button>
-    </div>
-</form>
-
+    </form>
+</div>

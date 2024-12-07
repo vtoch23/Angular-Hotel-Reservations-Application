@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
 import { ActivatedRoute, Router } from '@angular/router';

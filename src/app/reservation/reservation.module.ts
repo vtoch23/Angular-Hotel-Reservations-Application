@@ -5,20 +5,37 @@ import { ReservationListComponent } from '../reservation-list/reservation-list.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from '../home/home.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MaterialIconComponent } from '../material-icon/material-icon.component';
+import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
 @NgModule({
   declarations: [
+    MaterialIconComponent,
     ReservationFormComponent,
     ReservationListComponent
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     FormsModule,
     HomeModule,
+    MatAutocomplete,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
     ReactiveFormsModule,
-    RouterModule
-  ]
+    RouterModule,
+    ScrollingModule
+  ],
 })
 export class ReservationModule { }
