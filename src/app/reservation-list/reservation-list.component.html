@@ -6,22 +6,24 @@
     </div>
 
     <div class="lg:w-3/6 sm:w-4/6 lg:mx-auto md:mx-4 sm:mx-auto">
-        <h2 class="text-lg font-bold text-slate-600 mx-auto max-w-fit mt-4">Reservations List</h2>
+        <h2 class="text-lg font-bold text-slate-600 mx-auto max-w-fit my-4">Reservations List</h2>
         @if (reservations.length) {
         <div class="mx-auto content-center justify-center">
             @for (reservation of reservations; track reservation.id) {
-                <div class="container my-2 p-3">
-                    <div class="container flex justify-between"> <label>Guest: </label><div class="font-bold">{{reservation.guestName}} </div></div>
-                    <div class="container flex justify-between"> <label>Email: </label><div class="font-bold">{{reservation.guestEmail}} </div></div>
-                    <div class="container flex justify-between"> <label>Room No: </label><div class="font-bold">{{reservation.roomNumber}} </div></div>
-                    <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-In Date: </label><div class="font-bold">{{reservation.checkInDate}} </div></div>
-                    <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-Out Date: </label><div class="font-bold">{{reservation.checkOutDate}} </div></div>
-                    <div class="container flex justify-between">
-                        <div class="bg-slate-800 w-24 text-white text-center rounded-sm hover:text-black hover:bg-slate-400 mt-2"><button (click)="deleteReservation(reservation.id)">Delete</button></div>
-                        <div class="bg-slate-500 w-24 text-white text-center rounded-sm hover:text-white hover:bg-slate-900 mt-2"><button [routerLink]="['/list/edit', reservation.id]">Edit</button></div>
+                <div class="container border-2 mb-2 rounded-t-lg">
+                    <div class="text-center mt-2 text-pink-500"><mat-icon class="icon-size" aria-hidden="false" aria-label="arrow" fontIcon={{reservation.icon}}></mat-icon></div>
+                    <div class="container my-2 p-3">
+                        <div class="container flex justify-between"> <label>Guest: </label><div class="font-bold">{{reservation.guestName}} </div></div>
+                        <div class="container flex justify-between"> <label>Email: </label><div class="font-bold">{{reservation.guestEmail}} </div></div>
+                        <div class="container flex justify-between"> <label>Room No: </label><div class="font-bold">{{reservation.roomNumber}} </div></div>
+                        <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-In Date: </label><div class="font-bold">{{reservation.checkInDate}} </div></div>
+                        <div class="container lg:flex md:flex sm:flex-none justify-between"> <label>Check-Out Date: </label><div class="font-bold">{{reservation.checkOutDate}} </div></div>
+                        <div class="container flex justify-between">
+                            <div class="bg-slate-800 w-24 text-white text-center rounded-sm hover:text-black hover:bg-slate-400 mt-2"><button (click)="deleteReservation(reservation.id)">Delete</button></div>
+                            <div class="bg-slate-500 w-24 text-white text-center rounded-sm hover:text-white hover:bg-slate-900 mt-2"><button [routerLink]="['/list/edit', reservation.id]">Edit</button></div>
+                        </div>
                     </div>
                 </div>
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             }
         </div>
         } 

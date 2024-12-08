@@ -3,8 +3,10 @@
     <hr class="h-px mt-6 bg-slate-400 border-0 dark:bg-gray-700">
     <div class="text-pink-400 text-center"><mat-icon class="icon-size" aria-hidden="false" aria-label="arrow" fontIcon="arrow_drop_down"></mat-icon></div>
     <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-        <div class="container mx-auto max-w-fit"><app-material-icon [formControlName]=""></app-material-icon></div>
+        
         <div class="container w-full p-8 mx-auto">
+            <div class="container mx-auto"><app-material-icon [formGroup] = "reservationForm" formControlName="icon"></app-material-icon></div>
+            
             <div class="justify-between flex lg:mb-8 md:my-2 sm:my-2">
                 <label class="text-white">Check-In Date</label>
                 <input class="input shadow-sm border-2 ml-1"     

@@ -25,6 +25,7 @@ export class ReservationFormComponent implements OnInit{
       guestName: ['', Validators.required],
       guestEmail: ['', [Validators.required, Validators.email]],
       roomNumber: ['', Validators.required],
+      icon: ('')
     });
 
     let id = this.activatedRoute.snapshot.paramMap.get('id');
