@@ -43,8 +43,6 @@ export class MaterialIconComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   ngAfterViewInit() {
     this.setupFilteredIconsObservable();
-    console.log('after view init')
-    console.log(this.form.valueChanges)
   }
 
   ngOnDestroy(): void {
@@ -53,12 +51,10 @@ export class MaterialIconComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   registerOnChange(fn: any): void {
-    console.log('onChange');
     this.form.valueChanges.subscribe(fn);
     this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    console.log("on blur");
     this.onTouched = fn;
   }
 
@@ -67,7 +63,6 @@ export class MaterialIconComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
 
   markAsTouched(): void {
-    console.log("on blur");
     this.onTouched();
   }
   onSelection(value: string | null): void {
@@ -106,14 +101,12 @@ export class MaterialIconComponent implements OnInit, AfterViewInit, OnDestroy, 
       });
   }
   private setupFilteredIconsObservable(): void {
-    console.log('initialise setupFilteredIconsObservable')
     this.filteredIcons$ = this.formControl.valueChanges
       .pipe(
         startWith(this.formControl.value),
         map((iconName: string) => this.filterIcons(iconName)),
         tap((values: string[]) => this.filteredIconsCount = values.length)
       );
-      console.log(this.filteredIconsCount)
   }
 
   private filterIcons(userInput: string): string[] {
@@ -121,7 +114,6 @@ export class MaterialIconComponent implements OnInit, AfterViewInit, OnDestroy, 
       return this.icons;
     }
     const filterValue = userInput.toLowerCase();
-    console.log(filterValue)
     return this.icons.filter(option => option.toLowerCase().includes(filterValue))
   }
 }

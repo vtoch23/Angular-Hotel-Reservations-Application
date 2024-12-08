@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     BrowserModule,
     CommonModule,
+    HttpClientModule,
     HomeModule,
     ReservationModule,
   ],
