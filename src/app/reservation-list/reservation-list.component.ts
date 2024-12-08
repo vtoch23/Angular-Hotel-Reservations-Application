@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reservation-list',
@@ -8,9 +10,9 @@ import { Reservation } from '../models/reservation';
   styleUrl: './reservation-list.component.css'
 })
 export class ReservationListComponent implements OnInit {
-
+  
   reservations: Reservation[] = [];
-  constructor(private reservationService: ReservationService) {}
+  constructor(private reservationService: ReservationService, private activatedRoute: ActivatedRoute, private router: Router  ) {}
 
   ngOnInit():void {
     this.reservations = this.reservationService.getReservations();

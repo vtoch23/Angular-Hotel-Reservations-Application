@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReservationService } from '../reservation/reservation.service';
 import { Reservation } from '../models/reservation';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -25,6 +25,7 @@ export class ReservationFormComponent implements OnInit{
       guestName: ['', Validators.required],
       guestEmail: ['', [Validators.required, Validators.email]],
       roomNumber: ['', Validators.required],
+      icon: ('')
     });
 
     let id = this.activatedRoute.snapshot.paramMap.get('id');

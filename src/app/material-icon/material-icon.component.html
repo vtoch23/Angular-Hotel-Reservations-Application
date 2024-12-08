@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+    <div class="container flex justify-between">
+        <mat-form-field fxFlex class="w-56">
+            <mat-label>Icon</mat-label>
+            <input matInput type="text" 
+                            class="w-36"
+                            formControlName="icon"
+                            [formControl]="formControl"
+                            [matAutocomplete]="auto">
+            
+            <mat-autocomplete #auto="matAutocomplete" 
+                        (optionSelected)="onSelection($event.option.value)">
+                        
+                        @for ( icon of filteredIcons$ | async; track trackByIconName) {
+                            <mat-option [value]="icon" class="container flex max-w-fit"><div>{{icon}}</div>
+                                    <mat-icon class="icon-size" aria-hidden="false" fontIcon={{icon}}></mat-icon>
+                            </mat-option>
+                        }
+                    
+            </mat-autocomplete>
+        </mat-form-field>
+        <div class="m-1">
+            <mat-icon aria-hidden="false" class="text-white w-auto m-3 icon-size" fontIcon={{formControl.value}}></mat-icon>
+        </div>
+</div>
+</form>
